@@ -50,6 +50,32 @@ class Database extends Config
         ],
     ];
 
+    public array $prod = [
+        'DSN'          => '',
+        'hostname'     => 'rahmaliaaabw-server.mysql.database.azure.com',
+        'username'     => 'sirobpmybd',
+        'password'     => 'EL$syxN78s7oulmV',
+        'database'     => '',
+        'DBDriver'     => 'MySQLi',
+        'DBPrefix'     => '',
+        'pConnect'     => false,
+        'DBDebug'      => true,
+        'charset'      => 'utf8mb4',
+        'DBCollat'     => 'utf8mb4_general_ci',
+        'swapPre'      => '',
+        'encrypt'      => false,
+        'compress'     => false,
+        'strictOn'     => false,
+        'failover'     => [],
+        'port'         => 3306,
+        'numberNative' => false,
+        'dateFormat'   => [
+            'date'     => 'Y-m-d',
+            'datetime' => 'Y-m-d H:i:s',
+            'time'     => 'H:i:s',
+        ],
+    ];
+
     //    /**
     //     * Sample database connection for SQLite3.
     //     *
@@ -196,6 +222,8 @@ class Database extends Config
         // we don't overwrite live data on accident.
         if (ENVIRONMENT === 'testing') {
             $this->defaultGroup = 'tests';
+        } else if (ENVIRONMENT === 'production') {
+            $this->defaultGroup = 'prod';
         }
     }
 }
